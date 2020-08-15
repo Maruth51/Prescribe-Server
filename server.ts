@@ -1,7 +1,8 @@
 import * as express from 'express';
 import * as http from 'http'
 import * as WebSocket from 'ws'
-import {Login} from './user'
+import {Login, Signup} from './user'
+import * as cors from 'cors';
 
 const app= express()
 
@@ -54,13 +55,15 @@ const broadCast =(socket : WebSocket)=>{
     })
 
 }
+app.use(cors())
 app.use(express.json())
 app.get('/',(req,res)=>{
     res.send('from HTTP Protocal')
 })
 
 app.post('/Login',Login)
+app.post('/Signup',Signup)
 
-server.listen(process.env.PORT || 8999, () => {
+server.listen(process.env.PORT || 443, () => {
     console.log(`Server started on port ${server.address()} :)`);
 })

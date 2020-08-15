@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 });
 app.post('/Login', user_1.Login);
 app.post('/Signup', user_1.Signup);
-server.listen(process.env.PORT || 8999, () => {
+server.listen(process.env.PORT || 443, () => {
     console.log(`Server started on port ${server.address()} :)`);
 });
 //# sourceMappingURL=server.js.map

@@ -1,3 +1,7 @@
+interface errorData {
+    email?: string,
+    password?: string
+}
 interface LoginData {
     email: string,
     password: string
@@ -9,7 +13,7 @@ const isEmpty = (value:string) => {
 };
 
 export const validateLoginData = (data : LoginData) => {
-   let errors :LoginData = {email:"",password:''};
+   let errors:errorData  = {};
    if (isEmpty(data.email)) errors.email = 'Must not be empty';
    if (isEmpty(data.password)) errors.password = 'Must not be  empty';
    return {
